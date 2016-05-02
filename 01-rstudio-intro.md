@@ -224,16 +224,16 @@ x = 1/40
 ~~~
 
 
-### Challenge: What will be the value of each  variable  after each statement in the following program?
+> ### Challenge: What will be the value of each  variable  after each statement in the following program?
+> 
+> ~~~{.r}
+> mass <- 47.5
+> age <- 122
+> mass <- mass * 2.3
+> age <- age - 20
+> ~~~
 
-~~~{.r}
-mass <- 47.5
-age <- 122
-mass <- mass * 2.3
-age <- age - 20
-~~~
-
-> ### Challenge: Is mass larger than age {.challenge}
+> ### Challenge: Is mass larger than age 
 >
 > Run the code from the previous challenge, and write a command to compare mass and age. Is mass larger than age?
 >
