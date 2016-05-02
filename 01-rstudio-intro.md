@@ -250,19 +250,19 @@ Different people use different conventions for long variable names. What you use
   * underscores\_between_words
   * CamelCaseToSeparateWords
 
-### Challenge: Which of the following are valid R variable names?
-
-~~~{.r}
-min_height
-max.height
-_age
-.mass
-MaxLength
-min-length
-2widths
-celsius2kelvin
-celsius kelvin
-~~~
+> ### Challenge: Which of the following are valid R variable names?
+> 
+> ~~~{.r}
+> min_height
+> max.height
+> _age
+> .mass
+> MaxLength
+> min-length
+> 2widths
+> celsius2kelvin
+> celsius kelvin
+> ~~~
 
 
 ## Vectorization
