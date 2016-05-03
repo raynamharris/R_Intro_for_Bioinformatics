@@ -59,10 +59,10 @@ ggplot2 is built on the grammar of graphics. Basically, any plot can be expresse
 
 Let's start off with an example:
 
-
 ~~~{.r}
-ggplot(data = gapminder, aes(x = lifeExp, y = gdpPercap)) +
-  geom_point()
+ggplot(data = gapminder, 
+	aes(x = lifeExp, y = gdpPercap)) +
+	geom_point()
 ~~~
 
 <img src="figures/08-plot-ggplot2-lifeExp-vs-gdpPercap-scatter-1.png" title="plot of chunk lifeExp-vs-gdpPercap-scatter" alt="plot of chunk lifeExp-vs-gdpPercap-scatter" style="display: block; margin: auto;" />
@@ -74,33 +74,33 @@ layers on the plot.
 
 Then, we passed in two arguments to `ggplot`. 
 1. Using `data = gapminder`, we tell ggplot where to find the data 
-2. Using the `aes` function, we tell `ggplot` how variables in the data map to *aesthetic* properties of the figure, in this case the x and y locations. In the above example, said plot **lifeExp on the x-axis** and the **gdpPercap on the y-axis***. 
+2. Using the `aes` function, we tell `ggplot` how variables in the data map to *aesthetic* properties of the figure, in this case the x and y locations. In the above example, said plot **lifeExp on the x-axis** and the **gdpPercap on the y-axis**. 
 
 Finally, we told `ggplot` how to visually represent the data by adding adding a **geom** layer. In our example, we used `geom_point`, which tells `ggplot` we want to visually represent the relationship between x and y as a **scatterplot**
 
 
-> ## Challenge: Plot life expectancy over time
+> ### Challenge: Plot life expectancy over time
 > Modify the example so that the figure visualise how life expectancy has
 > changed over time.
 
+Here is one potential solution.
 
-
-> ## Solution: Plot life expectancy over time
+> ### Solution: Plot life expectancy over time
 > ~~~{.r}
 > ggplot(data = gapminder, aes(x = year, y = lifeExp)) + geom_point()
 > ~~~
 
 
-> ## Challenge 2 {.challenge}
->
-> In the previous examples and challenge we've used the `aes` function to tell
-> the scatterplot **geom** about the **x** and **y** locations of each point.
-> Another *aesthetic* property we can modify is the point *color*. Modify the
-> code from the previous challenge to **color** the points by the "continent"
-> column. What trends do you see in the data? Are they what you expected?
->
+### More aesthetics 
+Rather than have all our data points be black, we can color them by a factor, in our case either continent or country. We will use the *aesthetic* property `color = ` to do this
 
-## Layers
+~~~{.r}
+ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
+  geom_point()
+~~~
+
+
+### Adding Color
 
 Using a scatterplot probably isn't the best for visualising change over time.
 Instead, let's tell `ggplot` to visualise the data as a line plot:
@@ -111,7 +111,7 @@ ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
   geom_line()
 ~~~
 
-<img src="fig/08-plot-ggplot2-lifeExp-line-1.png" title="plot of chunk lifeExp-line" alt="plot of chunk lifeExp-line" style="display: block; margin: auto;" />
+<img src="figures/05-plotting-ggplot2-year-lifeExp-color.jpeg" title="plot of chunk lifeExp-line" alt="plot of chunk lifeExp-line" style="display: block; margin: auto;" />
 
 Instead of adding a `geom_point` layer, we've added a `geom_line` layer. We've
 added the **by** *aesthetic*, which tells `ggplot` to draw a line for each
