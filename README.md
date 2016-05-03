@@ -1,7 +1,5 @@
-R for Reproducible Scientific Analysis
+Introduction to R for Bioinformatics
 ======================================
-
-Introduction to R for Bioinformatics using gapminder data.
 
 The goals of this lesson are 1) to teach novice programmers to write modular code and best practices for using R for data analysis, and 2) to teach novice programmers how to modify scripts to accomodate their own data. 
 
@@ -23,7 +21,7 @@ Learning objectives:
 ## Overview
 
 1.  [Introduction to R and RStudio](01-rstudio-intro.md)
-2.  [Project management with RStudio](02-project-intro.md)
+2.  [Best Practices](02-best-practices.md)
 3.  [Seeking help](03-seeking-help.html)
 4.  [Data structures](04-data-structures-part1.html)
 5.  [Data frames and reading in data](05-data-structures-part2.html)

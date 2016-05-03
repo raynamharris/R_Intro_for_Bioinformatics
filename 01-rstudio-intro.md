@@ -1,4 +1,5 @@
-## Introduction to R and RStudio
+01: Introduction to R and RStudio
+=================================
 
 RStudio is a free, open source R integrated development environment. It provides a built in editor and provides many advantages such as integration with version control and project management.
 
@@ -358,3 +359,8 @@ network). R and RStudio have functionality for managing packages:
 > 
 > Install and load the following packages: `ggplot2`, `plyr`, `gapminder`
 > 
+
+
+## Proceed to the Next or Previous lesson
+**Next Lesson:** [02 Best Practices](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/02-project-intro.md)  
+**Previous Lesson** [00 The Motivating Datasets](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/00-motivating-datasets.md)
