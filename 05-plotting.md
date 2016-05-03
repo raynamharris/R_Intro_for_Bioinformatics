@@ -99,154 +99,112 @@ ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
   geom_point()
 ~~~
 
+<img src="figures/05-plotting-ggplot2-year-lifeExp-color.jpeg" title="plot of chunk lifeExp-line" alt="plot of chunk lifeExp-line" style="display: block; margin: auto;" />
 
-### Adding Color
+Now, we can begin to see patterns in the data and start to better understand how GDP varies as a function of time and country. 
 
-Using a scatterplot probably isn't the best for visualising change over time.
-Instead, let's tell `ggplot` to visualise the data as a line plot:
+### by= and geom_line()
+With two modification, we can examine how GDP changes over time for a speicific country. 
 
+1. First, we add the aesthetic `by=country` to group the data by country. 
+2. Then, we replace `geom_point()` with `geom_line()`
 
 ~~~{.r}
-ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
+ggplot(data = gapminder, aes(x=year, y=lifeExp, color=continent, by=country)) +
   geom_line()
 ~~~
 
-<img src="figures/05-plotting-ggplot2-year-lifeExp-color.jpeg" title="plot of chunk lifeExp-line" alt="plot of chunk lifeExp-line" style="display: block; margin: auto;" />
-
-Instead of adding a `geom_point` layer, we've added a `geom_line` layer. We've
-added the **by** *aesthetic*, which tells `ggplot` to draw a line for each
-country.
-
-But what if we want to visualise both lines and points on the plot? We can
-simply add another layer to the plot:
-
+The `+` means that that we are layering lines onto the plot. We can layer both the points and the lines if you think that is useful.
 
 ~~~{.r}
 ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
   geom_line() + geom_point()
 ~~~
 
-<img src="fig/08-plot-ggplot2-lifeExp-line-point-1.png" title="plot of chunk lifeExp-line-point" alt="plot of chunk lifeExp-line-point" style="display: block; margin: auto;" />
+<img src="figures/08-plot-ggplot2-lifeExp-line-point-1.png" title="plot of chunk lifeExp-line-point" alt="plot of chunk lifeExp-line-point" style="display: block; margin: auto;" />
 
-It's important to note that each layer is drawn on top of the previous layer. In
-this example, the points have been drawn *on top of* the lines. Here's a
-demonstration:
-
+Its important to remember that what is inside `ggplot()` is applied globallly. If we only want the lines to be colored but not the points, we could modify the placement of aes(color=continent)
 
 ~~~{.r}
 ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
   geom_line(aes(color=continent)) + geom_point()
 ~~~
 
-<img src="fig/08-plot-ggplot2-lifeExp-layer-example-1-1.png" title="plot of chunk lifeExp-layer-example-1" alt="plot of chunk lifeExp-layer-example-1" style="display: block; margin: auto;" />
+<img src="figures/08-plot-ggplot2-lifeExp-layer-example-1-1.png" title="plot of chunk lifeExp-layer-example-1" alt="plot of chunk lifeExp-layer-example-1" style="display: block; margin: auto;" />
 
 In this example, the *aesthetic* mapping of **color** has been moved from the
 global plot options in `ggplot` to the `geom_line` layer so it no longer applies
 to the points. Now we can clearly see that the points are drawn on top of the
 lines.
 
-> ## Challenge 3 {.challenge}
->
-> Switch the order of the point and line layers from the previous example. What
-> happened?
->
+### Transformations and Statistics
+Sometimes, it makes more sense to plot transformed data. You could create a new column with the log transformed GDP, or we can simply have `ggplot` log transform the data. Let's look at both.
 
-## Transformations and statistics
+#### Modifying the dataframe 
+The command `log10(gapminder$gdpPercap)` will perform a log transformation of the gdp column. The syntax `data$newcolumn <-` tells R to send that output to a new column in a specified data frame.
 
-Ggplot also makes it easy to overlay statistical models over the data. To
-demonstrate we'll go back to our first example:
+~~~{.r}
+gapminder$logGDP <- log10(gapminder$gdpPercap)
+head(gapminder)
+~~~
 
+Now, let's plot the untransformed and the transformed data
 
 ~~~{.r}
 ggplot(data = gapminder, aes(x = lifeExp, y = gdpPercap, color=continent)) +
   geom_point()
+ggplot(data = gapminder, aes(x = lifeExp, y = logGDP, color=continent)) +
+  geom_point()
 ~~~
 
-<img src="fig/08-plot-ggplot2-lifeExp-vs-gdpPercap-scatter3-1.png" title="plot of chunk lifeExp-vs-gdpPercap-scatter3" alt="plot of chunk lifeExp-vs-gdpPercap-scatter3" style="display: block; margin: auto;" />
+Now, its easier to see the linear relationship between life expectancy and see differences by country.
 
-Currently it's hard to see the relationship between the points due to some strong
-outliers in GDP per capita. We can change the scale of units on the y axis using
-the *scale* functions. These control the mapping between the data values and
-visual values of an aesthetic.
+#### Using scale_y_log10() or scale_x_log10()
 
+Rather than modifying the data frame, we could also change the scale of units on the y axis by layering on the *scale* function. 
 
 ~~~{.r}
-ggplot(data = gapminder, aes(x = lifeExp, y = gdpPercap)) +
+ggplot(data = gapminder, aes(x = lifeExp, y = gdpPercap, color=continent)) +
   geom_point() + scale_y_log10()
 ~~~
 
-<img src="fig/08-plot-ggplot2-axis-scale-1.png" title="plot of chunk axis-scale" alt="plot of chunk axis-scale" style="display: block; margin: auto;" />
+<img src="figures/08-plot-ggplot2-axis-scale-1.png" title="plot of chunk axis-scale" alt="plot of chunk axis-scale" style="display: block; margin: auto;" />
 
-The `log10` function applied a transformation to the values of the gdpPercap
-column before rendering them on the plot, so that each multiple of 10 now only
-corresponds to an increase in 1 on the transformed scale, e.g. a GDP per capita
-of 1,000 is now 3 on the y axis, a value of 10,000 corresponds to 4 on the y
-axis and so on. This makes it easier to visualise the spread of data on the
-y-axis.
+The `log10` function applied a transformation to the values of the gdpPercap column before rendering them on the plot, so that each multiple of 10 now only corresponds to an increase in 1 on the transformed scale, e.g. a GDP per capita of 1,000 is now 3 on the y axis, a value of 10,000 corresponds to 4 on the y axis and so on. This makes it easier to visualise the spread of data on the y-axis.
 
-We can fit a simple relationship to the data by adding another layer,
-`geom_smooth`:
+### Fitting a Model to the Plot
 
+We can fit a simple relationship to the data by adding `geom_smooth()` to another layer. We must specify a method, and here we will use a linear model or "lm"
 
 ~~~{.r}
 ggplot(data = gapminder, aes(x = lifeExp, y = gdpPercap)) +
-  geom_point() + scale_y_log10() + geom_smooth(method="lm")
+  geom_point() + scale_y_log10() + geom_smooth(method='lm')
 ~~~
 
-<img src="fig/08-plot-ggplot2-lm-fit-1.png" title="plot of chunk lm-fit" alt="plot of chunk lm-fit" style="display: block; margin: auto;" />
+<img src="figures/08-plot-ggplot2-lm-fit-1.png" title="plot of chunk lm-fit" alt="plot of chunk lm-fit" style="display: block; margin: auto;" />
 
-We can make the line thicker by *setting* the **size** aesthetic in the
-`geom_smooth` layer:
-
+Remember, that everything inside `ggplot()` will be applied to all the layers.  To see the model for each country, add the aesthetic `color=continent` back.
 
 ~~~{.r}
-ggplot(data = gapminder, aes(x = lifeExp, y = gdpPercap)) +
-  geom_point() + scale_y_log10() + geom_smooth(method="lm", size=1.5)
+ggplot(data = gapminder, aes(x = lifeExp, y = gdpPercap, color=continent)) +
+  geom_point() + scale_y_log10() + geom_smooth(method='lm')
 ~~~
 
-<img src="fig/08-plot-ggplot2-lm-fit2-1.png" title="plot of chunk lm-fit2" alt="plot of chunk lm-fit2" style="display: block; margin: auto;" />
 
-There are two ways an *aesthetic* can be specified. Here we *set* the **size**
-aesthetic by passing it as an argument to `geom_smooth`. Previously in the
-lesson we've used the `aes` function to define a *mapping* between data
-variables and their visual representation.
-
-> ## Challenge 4 {.challenge}
->
-> Modify the color and size of the points on the point layer in the previous
-> example.
->
-> Hint: do not use the `aes` function.
->
-
-## Multi-panel figures
-
-Earlier we visualised the change in life expectancy over time across all
-countries in one plot. Alternatively, we can split this out over multiple panels
-by adding a layer of **facet** panels:
-
+### Multi-panel figures
+Earlier we visualised the change in life expectancy over time across all countries in one plot. Alternatively, we can split this out over multiple panels by adding a layer of **facet** panels. The `facet_wrap` layer took a "formula" as its argument, denoted by the tilde (~). This tells R to draw a panel for each unique value in the country column of the gapminder dataset.
 
 ~~~{.r}
 ggplot(data = gapminder, aes(x = year, y = lifeExp, color=continent)) +
   geom_line() + facet_wrap( ~ country)
 ~~~
 
-<img src="fig/08-plot-ggplot2-facet-1.png" title="plot of chunk facet" alt="plot of chunk facet" style="display: block; margin: auto;" />
+<img src="figures/08-plot-ggplot2-facet-1.png" title="plot of chunk facet" alt="plot of chunk facet" style="display: block; margin: auto;" />
 
-The `facet_wrap` layer took a "formula" as its argument, denoted by the tilde
-(~). This tells R to draw a panel for each unique value in the country column
-of the gapminder dataset.
+The `facet_wrap` layer took a "formula" as its argument, denoted by the tilde (~). This tells R to draw a panel for each unique value in the country column of the gapminder dataset.
 
-## Modifying text
-
-To clean this figure up for a publication we need to change some of the text
-elements. The x-axis is way too cluttered, and the y axis should read
-"Life expectancy", rather than the column name in the data frame.
-
-We can do this by adding a couple of different layers. The **theme** layer
-controls the axis text, and overall text size, and there are special layers
-for changing the axis labels. To change the legend title, we need to use the
-**scales** layer.
+### Modifying Text with themes
+To clean this figure up for a publication we need to change some of the text elements. The x-axis is way too cluttered, and the y axis should read "Life expectancy", rather than the column name in the data frame. We can do this by adding a couple of different layers. The **theme** layer controls the axis text, and overall text size, and there are special layers for changing the axis labels. To change the legend title, we need to use the **scales** layer.
 
 
 ~~~{.r}
@@ -257,108 +215,15 @@ ggplot(data = gapminder, aes(x = year, y = lifeExp, color=continent)) +
   theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
 ~~~
 
-<img src="fig/08-plot-ggplot2-theme-1.png" title="plot of chunk theme" alt="plot of chunk theme" style="display: block; margin: auto;" />
+<img src="figures/08-plot-ggplot2-theme-1.png" title="plot of chunk theme" alt="plot of chunk theme" style="display: block; margin: auto;" />
 
-
-This is just a taste of what you can do with `ggplot2`. RStudio provides a
-really useful [cheat sheet][cheat] of the different layers available, and more
-extensive documentation is available on the [ggplot2 website][ggplot-doc].
-Finally, if you have no idea how to change something, a quick google search will
-usually send you to a relevant question and answer on Stack Overflow with reusable
-code to modify!
+### More on ggplot2
+This is just a taste of what you can do with `ggplot2`. RStudio provides a really useful [cheat sheet][cheat] of the different layers available, and more extensive documentation is available on the [ggplot2 website][ggplot-doc]. Finally, if you have no idea how to change something, a quick google search will usually send you to a relevant question and answer on Stack Overflow with reusable code to modify!
 
 [cheat]: http://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf
 [ggplot-doc]: http://docs.ggplot2.org/current/
 
 
-> ## Challenge 5 {.challenge}
->
-> Create a density plot of GDP per capita, filled by continent.
->
-> Advanced:
->  - Transform the x axis to better visualise the data spread.
->  - Add a facet layer to panel the density plots by year.
->
-
-## Challenge solutions
-
-> ## Solution to challenge 1 {.challenge}
->
-> Modify the example so that the figure visualise how life expectancy has
-> changed over time:
->
-> 
-> ~~~{.r}
-> ggplot(data = gapminder, aes(x = year, y = lifeExp)) + geom_point()
-> ~~~
-> 
-> <img src="fig/08-plot-ggplot2-ch1-sol-1.png" title="plot of chunk ch1-sol" alt="plot of chunk ch1-sol" style="display: block; margin: auto;" />
->
-
-> ## Solution to challenge 2 {.challenge}
->
-> In the previous examples and challenge we've used the `aes` function to tell
-> the scatterplot **geom** about the **x** and **y** locations of each point.
-> Another *aesthetic* property we can modify is the point *color*. Modify the
-> code from the previous challenge to **color** the points by the "continent"
-> column. What trends do you see in the data? Are they what you expected?
->
-> 
-> ~~~{.r}
-> ggplot(data = gapminder, aes(x = year, y = lifeExp, color=continent)) +
->   geom_point()
-> ~~~
-> 
-> <img src="fig/08-plot-ggplot2-ch2-sol-1.png" title="plot of chunk ch2-sol" alt="plot of chunk ch2-sol" style="display: block; margin: auto;" />
->
-
-> ## Solution to challenge 3 {.challenge}
->
-> Switch the order of the point and line layers from the previous example. What
-> happened?
->
-> 
-> ~~~{.r}
-> ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
->  geom_point() + geom_line(aes(color=continent))
-> ~~~
-> 
-> <img src="fig/08-plot-ggplot2-ch3-sol-1.png" title="plot of chunk ch3-sol" alt="plot of chunk ch3-sol" style="display: block; margin: auto;" />
-> 
-> The lines now get drawn over the points!
->
-
-
-> ## Solution to challenge 4 {.challenge}
->
-> Modify the color and size of the points on the point layer in the previous
-> example.
->
-> Hint: do not use the `aes` function.
->
-> 
-> ~~~{.r}
-> ggplot(data = gapminder, aes(x = lifeExp, y = gdpPercap)) +
->  geom_point(size=3, color="orange") + scale_y_log10() +
->  geom_smooth(method="lm", size=1.5)
-> ~~~
-> 
-> <img src="fig/08-plot-ggplot2-ch4-sol-1.png" title="plot of chunk ch4-sol" alt="plot of chunk ch4-sol" style="display: block; margin: auto;" />
->
-
-> ## Solution to challenge 5 {.challenge}
->
-> Create a density plot of GDP per capita, filled by continent.
->
-> Advanced:
->  - Transform the x axis to better visualise the data spread.
->  - Add a facet layer to panel the density plots by year.
->
-> 
-> ~~~{.r}
-> ggplot(data = gapminder, aes(x = gdpPercap, fill=continent)) +
->  geom_density(alpha=0.6) + facet_wrap( ~ year) + scale_x_log10()
-> ~~~
-> 
-> <img src="fig/08-plot-ggplot2-ch5-sol-1.png" title="plot of chunk ch5-sol" alt="plot of chunk ch5-sol" style="display: block; margin: auto;" />
->
+## Proceed to the Next or Previous lesson
+**Next Lesson:** [06 DESeq2]
+*Previous Lesson** [04 Data Structures & Data Frames](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/04-data-structures-dataframes.md) 
