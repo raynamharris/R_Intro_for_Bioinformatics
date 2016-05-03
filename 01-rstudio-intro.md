@@ -357,7 +357,7 @@ network). R and RStudio have functionality for managing packages:
 
 > ## Challenge 5: Install and load the following packages.
 > 
-> Install and load the following packages: `ggplot2`, `plyr`, `gapminder`
+> Install and load the following packages: `ggplot2`, `dplyr`, `gapminder`, `cowplot`
 > 
 
 
