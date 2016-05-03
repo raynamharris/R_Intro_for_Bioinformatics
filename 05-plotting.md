@@ -203,6 +203,13 @@ ggplot(data = gapminder, aes(x = year, y = lifeExp, color=continent)) +
 
 The `facet_wrap` layer took a "formula" as its argument, denoted by the tilde (~). This tells R to draw a panel for each unique value in the country column of the gapminder dataset.
 
+We can combine facet wrap with other geoms such as geom_density to create pretty histograms.
+
+~~~{.r}
+ggplot(data=gapminder, aes(x=gdpPercap, fill=continent)) +
+  geom_density(alpha=0.6) + facet_wrap( ~ year) + scale_x_log10()
+~~~
+
 ### Modifying Text with themes
 To clean this figure up for a publication we need to change some of the text elements. The x-axis is way too cluttered, and the y axis should read "Life expectancy", rather than the column name in the data frame. We can do this by adding a couple of different layers. The **theme** layer controls the axis text, and overall text size, and there are special layers for changing the axis labels. To change the legend title, we need to use the **scales** layer.
 
