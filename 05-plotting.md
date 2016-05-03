@@ -1,7 +1,7 @@
 04: Plotting with plot and ggplot2
 ================================
 
-> ## Learning Objectives {.objectives}
+> ## Learning Objectives 
 >
 > * To be able to use ggplot2 to generate publication quality graphics
 > * To understand the basics of the grammar of graphics:
@@ -20,6 +20,39 @@ There are three main plotting systems in R, the [base plotting system][base], th
 [lattice]: http://www.statmethods.net/advgraphs/trellis.html
 [ggplot2]: http://www.statmethods.net/advgraphs/ggplot2.html
 
+## Plotting with Base R
+
+The `plot()` function in base R can be used to quickly generate plots in R. Let's look at how to use plot
+
+~~~{.r}
+?'plot'
+~~~
+
+At a minimum, we must tell R what to plot on the x and y. Here are two examples
+
+~~~{.r}
+plot(gapminder$lifeExp, gapminder$gdpPercap)
+plot(gapminder$continent, gapminder$gdpPercap)
+~~~
+
+Since columns used in the first example contained all numbers, the plot default was a scatter plot. However, continent contains factors, so the default plot was a box plot
+
+###  main, xlab, ylab
+We can add a title and axis labels like so:
+
+~~~{.r}
+plot(gapminder$lifeExp, gapminder$gdpPercap, 
+		main = 'Plot of GDP and LifeExp',
+		xlab = 'GDP',
+		ylab = 'Life Expectancy')
+plot(gapminder$continent, gapminder$gdpPercap, 
+		main = 'View ofGDP across Continents',
+		xlab = 'Continent',
+		ylab = 'GDP')
+~~~
+
+So, that's nice and straightforward, but let's use ggplot to really explore the intricacies of our data
+
 ## ggplot2
 
 ggplot2 is built on the grammar of graphics. Basically, any plot can be expressed from the same set of components: a **data** set, a **coordinate system**, and a set of **geoms**-- or the visual representation of data points. The key to understanding ggplot2 is thinking about a figure in layers, like you might do in an image editing program like Photoshop or Illustrator,
@@ -28,63 +61,35 @@ Let's start off with an example:
 
 
 ~~~{.r}
-library("ggplot2")
 ggplot(data = gapminder, aes(x = lifeExp, y = gdpPercap)) +
   geom_point()
 ~~~
 
 <img src="figures/08-plot-ggplot2-lifeExp-vs-gdpPercap-scatter-1.png" title="plot of chunk lifeExp-vs-gdpPercap-scatter" alt="plot of chunk lifeExp-vs-gdpPercap-scatter" style="display: block; margin: auto;" />
 
-So the first thing we do is call the `ggplot` function. This function lets R
-know that we're creating a new plot, and any of the arguments we give the
-`ggplot` function are the *global* options for the plot: they apply to all
+
+The first thing we did was call the `ggplot()` function within the ggplot2 package. This function lets R know that we're creating a new plot, and any of the arguments we give the
+`ggplot` function are the *global* options for the plot that will be applied to all
 layers on the plot.
 
-We've passed in two arguments to `ggplot`. First, we tell `ggplot` what data we
-want to show on our figure, in this example the gapminder data we read in
-earlier. For the second argument we passed in the `aes` function, which
-tells `ggplot` how variables in the **data** map to *aesthetic* properties of
-the figure, in this case the **x** and **y** locations. Here we told `ggplot` we
-want to plot the "lifeExp" column of the gapminder data frame on the x-axis, and
-the "gdpPercap" column on the y-axis. Notice that we didn't need to explicitly
-pass `aes` these columns (e.g. `x = gapminder[, "lifeExp"]`), this is because
-`ggplot` is smart enough to know to look in the **data** for that column!
+Then, we passed in two arguments to `ggplot`. 
+1. Using `data = gapminder`, we tell ggplot where to find the data 
+2. Using the `aes` function, we tell `ggplot` how variables in the data map to *aesthetic* properties of the figure, in this case the x and y locations. In the above example, said plot **lifeExp on the x-axis** and the **gdpPercap on the y-axis***. 
 
-By itself, the call to `ggplot` isn't enough to draw a figure:
+Finally, we told `ggplot` how to visually represent the data by adding adding a **geom** layer. In our example, we used `geom_point`, which tells `ggplot` we want to visually represent the relationship between x and y as a **scatterplot**
 
 
-~~~{.r}
-ggplot(data = gapminder, aes(x = lifeExp, y = gdpPercap))
-~~~
-
-<img src="fig/08-plot-ggplot2-unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
-
-We need to tell `ggplot` how we want to visually represent the data, which we
-do by adding a new **geom** layer. In our example, we used `geom_point`, which
-tells `ggplot` we want to visually represent the relationship between **x** and
-**y** as a scatterplot of points:
-
-
-~~~{.r}
-ggplot(data = gapminder, aes(x = lifeExp, y = gdpPercap)) +
-  geom_point()
-~~~
-
-<img src="fig/08-plot-ggplot2-lifeExp-vs-gdpPercap-scatter2-1.png" title="plot of chunk lifeExp-vs-gdpPercap-scatter2" alt="plot of chunk lifeExp-vs-gdpPercap-scatter2" style="display: block; margin: auto;" />
-
-> ## Challenge 1 {.challenge}
->
+> ## Challenge: Plot life expectancy over time
 > Modify the example so that the figure visualise how life expectancy has
-> changed over time:
->
-> 
+> changed over time.
+
+
+
+> ## Solution: Plot life expectancy over time
 > ~~~{.r}
-> ggplot(data = gapminder, aes(x = lifeExp, y = gdpPercap)) + geom_point()
+> ggplot(data = gapminder, aes(x = year, y = lifeExp)) + geom_point()
 > ~~~
->
-> Hint: the gapminder dataset has a column called "year", which should appear
-> on the x-axis.
->
+
 
 > ## Challenge 2 {.challenge}
 >
