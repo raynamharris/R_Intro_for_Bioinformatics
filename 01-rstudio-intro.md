@@ -266,36 +266,6 @@ Different people use different conventions for long variable names. What you use
 > ~~~
 
 
-## Vectorization
-
-Another thing to be aware of is that R is *vectorized*, meaning that variables and functions can have vectors as values. For example
-
-~~~{.r}
-1:5
-~~~
-~~~{.output}
-[1] 1 2 3 4 5
-~~~
-
-~~~{.r}
-2^(1:5)
-~~~
-~~~{.output}
-[1]  2  4  8 16 32
-~~~
-
-~~~{.r}
-x <- 1:5
-2^x
-~~~
-
-~~~{.output}
-[1]  2  4  8 16 32
-~~~
-
-This is incredibly powerful concept will discussed this further in an upcoming lesson.
-
-
 ## Managing your environment
 There are a few useful commands you can use to interact with the R session.
 
