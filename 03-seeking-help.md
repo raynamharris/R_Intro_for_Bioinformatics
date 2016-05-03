@@ -84,3 +84,7 @@ the `[r]` tag. I like to look for answers with multiple votes, which shows commu
 > ?'DESeqDataSet'  		## will open help page
 > ~~~
 >
+
+## Proceed to the Next or Previous lesson
+**Next Lesson:** [04 Data Structures & Data Frames](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/04-data-structures-dataframes.md) 
+**Previous Lesson** [02 Best Practices](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/02-project-intro.md)
