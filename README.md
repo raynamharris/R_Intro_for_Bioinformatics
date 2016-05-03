@@ -22,8 +22,8 @@ Learning objectives:
 
 ## Overview
 
-1.  [Introduction to R and RStudio](01-rstudio-intro.html)
-2.  [Project management with RStudio](02-project-intro.html)
+1.  [Introduction to R and RStudio](01-rstudio-intro.md)
+2.  [Project management with RStudio](02-project-intro.md)
 3.  [Seeking help](03-seeking-help.html)
 4.  [Data structures](04-data-structures-part1.html)
 5.  [Data frames and reading in data](05-data-structures-part2.html)
@@ -38,5 +38,5 @@ Learning objectives:
 14. [Dataframe manipulation with tidyr](14-tidyr.html)
 15. [Wrapping up](15-wrap-up.html)
 
-## Other Resources
+
 
