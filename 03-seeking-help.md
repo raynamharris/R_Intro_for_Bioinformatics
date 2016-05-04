@@ -1,4 +1,4 @@
-Seeking Help
+03: Seeking Help
 =============
 
 ## Learning Objectives 
