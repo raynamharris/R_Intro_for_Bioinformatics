@@ -10,12 +10,10 @@
 > - To understand best practices of exploring and understanding a data.frame 
 
 ## Gapminder Data
-
 A data frame is a table, or two-dimensional structure, in which each column contains measurements on one variable, and each row contains one case. 
 
 
 ### read.csv()
-
 One of R's most powerful features is its ability to deal with tabular data. If you've ever opened a file in Excell, then you've worked with tabular data. .csv files are tabular data that can easily be loaded into R.
 
 Let's use the `read.csv` function to read in our data.
@@ -24,12 +22,17 @@ Let's use the `read.csv` function to read in our data.
 gapminder <- read.csv(file = "~/Desktop/FilesForRCourse/data/gapminder-FiveYearData.csv")
 ~~~
 
+#### Full and Relative Paths
+In the above example, we specified the full path to the file. If you have already used `setwd` to specifiy your bin direcotry inside 'FilesForRCourse', you could also use relative paths '../data/gapminder-FiveYearData.csv' to read in the file.
+
+### Viewing Your Data 
+
 There are at least three ways to view our imported data.
 
 ~~~{.r}
 gapminder			## will print to screen
 head(gapminder)		## will print first 5 lines to the screen
-View(gapminder)		## will open a tab showing the data in an excel-like way
+View(gapminder)		## will open a tab showing the data in an Excell-like way
 ~~~
 
 ~~~{.output}
@@ -47,8 +50,7 @@ View(gapminder)		## will open a tab showing the data in an excel-like way
 
 
 ### str()
-This is a pretty big dataset. Let's investigate the gapminder data with `str()`:
-
+This is a pretty big dataset. Let's investigate the gapminder data with `str()` function, which describes the **str**ucture of the data frame.
 
 ~~~{.r}
 str(gapminder)

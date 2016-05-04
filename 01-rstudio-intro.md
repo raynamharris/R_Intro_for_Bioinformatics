@@ -305,7 +305,7 @@ rm(x)
 
 The command `getwd()` will print your working directory. This is very useful for figuring out where you are.
 
-The command `setwd('path_to_bin')` is use to set the working directory. I like to set my working directory as the directory with my scripts. For instance `setwd('~/Desktop/FilesForRCourse/bin')
+The command `setwd('path_to_bin')` is use to set the working directory. I like to set my working directory as the directory with my scripts. For instance `setwd('~/Desktop/FilesForRCourse/bin')`
 
 
 > ## Challenge: Clean your enviornment {.challenge}

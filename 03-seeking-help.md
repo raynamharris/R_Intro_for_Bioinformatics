@@ -13,8 +13,8 @@
 Base R and R packages, provide help files for functions. There are multiple ways to search for information about a function from a package loaded into your your interactive R session. Let's use this example from ggplot2.
 
 ~~~{.r}
-??geom_point 		## this will provide search results if there are multiple hits
-?geom_point			## this will open the manual under the help tab
+?geom_point			## will provide help on a specific function
+??geom_point 		## will provide help on a specific function when you can't remember which package it is a part of
 help('geom_point')	## this will also open the manual under the help tab
 ~~~
 
@@ -59,9 +59,8 @@ If you don't know what function or package you need to use, [CRAN Task Views](ht
 
 ## Stack Overflow
 
-If you are having trouble with a function or package, 9 times out of 10 your problem has been discuss on
-[Stack Overflow](http://stackoverflow.com/). You can search using
-the `[r]` tag. I like to look for answers with multiple votes, which shows community support of an answer.
+If you are having trouble with a function or package, 9 times out of 10, your problem has been discussed on
+[Stack Overflow](http://stackoverflow.com/). You can search using the `[r]` tag. I like to look for answers with multiple votes, which shows community support of an answer.
 
 
 ## Other Useful Tutorials

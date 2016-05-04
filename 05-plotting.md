@@ -73,8 +73,8 @@ The first thing we did was call the `ggplot()` function within the ggplot2 packa
 layers on the plot.
 
 Then, we passed in two arguments to `ggplot`. 
-1. Using `data = gapminder`, we tell ggplot where to find the data 
-2. Using the `aes` function, we tell `ggplot` how variables in the data map to *aesthetic* properties of the figure, in this case the x and y locations. In the above example, said plot **lifeExp on the x-axis** and the **gdpPercap on the y-axis**. 
+1. Using `data = gapminder`, we tell ggplot where to find the data. Because ggplot expects to first be told the data, you don't have to type `data =` because this is the default. 
+2. Using the `aes` function, we tell `ggplot` how variables in the data map to *aesthetic* properties of the figure, in this case the x and y locations. In the above example, we said plot **lifeExp on the x-axis** and the **gdpPercap on the y-axis**. 
 
 Finally, we told `ggplot` how to visually represent the data by adding adding a **geom** layer. In our example, we used `geom_point`, which tells `ggplot` we want to visually represent the relationship between x and y as a **scatterplot**
 
