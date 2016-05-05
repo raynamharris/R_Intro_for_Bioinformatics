@@ -81,7 +81,7 @@ To specify specific rows and columns, we must separate them by a `,`. Also, you 
 gapminder[1:3,]
 ~~~
 
-Returns the first three rows and all columsn.
+Returns the first three rows and all column.
 
 ~~~{.output}
       country year      pop continent lifeExp gdpPercap

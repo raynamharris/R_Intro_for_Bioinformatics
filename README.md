@@ -30,4 +30,11 @@ Learning objectives:
 8.	[DESeq2](06-DESeq1.R)
 
 
+## Download the data and a script for today.
+
+Visit: https://github.com/raynamharris/FilesForRCourse
+Click "Download zip file.
+Save it to your desktop
+
+
 

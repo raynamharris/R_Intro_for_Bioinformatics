@@ -109,12 +109,21 @@ select(gapminder, year, continent, gdpPercap) %>%
 ..   ...       ...       ...
 ~~~
 
+To filter by multiple continents, we must put the continents inside a list with  ` %in% c()`.
+
+~~~{.r}
+select(gapminder, year, continent, gdpPercap) %>%
+	filter(continent %in% c("Africa", "Europe"))
+~~~
+
+
+
 If we wanted to save this new table, we could write the output to a new dataframe.
 
 ~~~{.r}
-year_country_gdp_euro <- 
+year_country_gdp_euro_afro <- 
 	select(gapminder, year, continent, gdpPercap) %>%
-		filter(continent=="Europe")
+		filter(continent %in% c("Africa", "Europe"))
 ~~~	
 
 > ### Challenge 1 
@@ -204,6 +213,27 @@ gapminder %>%
         	sd_pop=sd(pop))  %>%        
 	ggplot(aes(x = year, y = mean_pop, color=continent)) +
   			geom_line()   
+
+
+>## Challenge: Flights
+>
+>Now that you have learned all sorts of tools for analyzing and plotting data, let's see if you can apply it to another data frame!
+>
+>1. Read in flights.csv
+>2. Select, just the month, origin, and distance traveled
+>3. Group by month
+>4. Filter the data to limit it to flights leaving your three favorite destination airports
+>5. Plot month on the x axis, distance traveled on the y, and color by destination airport. Which airport is the closest to NYC? 
+
+Of the three airports, which had the the longest distances traveled on average?
+
+
+>## Challenge: Solution
+>flights2 %>%
+>  select(month, dest, distance) %>%
+>  group_by(month) %>%
+>  filter(dest %in% c('IAH', 'LAX', 'SFO')) %>%
+>  ggplot(aes(x=month, y=distance, color = dest)) + geom_point()
 
 
 ## Other great resources
