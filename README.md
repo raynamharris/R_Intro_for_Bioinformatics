@@ -27,7 +27,7 @@ Learning objectives:
 5.	[Plotting](05-plotting.md)
 6.	[Subsetting](06-subsetting.md)
 7.	[dplyr](07dplyr.md)
-8.	[DESeq2](06-DESeq1.md)
+8.	[DESeq2](06-DESeq1.R)
 
 
 
