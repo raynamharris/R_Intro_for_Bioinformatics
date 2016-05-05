@@ -1,4 +1,4 @@
-04: Plotting with plot and ggplot2
+05: Plotting with plot and ggplot2
 ================================
 
 > ## Learning Objectives 
