@@ -206,7 +206,11 @@ gapminder %>%
   			geom_line()   
 
 
-
 ## Other great resources
 [Data Wrangling Cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
 [Introduction to dplyr](https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html)
+
+
+## Proceed to the Next or Previous lesson
+**Next Lesson:** [08 DESeq2](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/08-DESeq2.R)
+*Previous Lesson** [06 Subsetting](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/06-subsetting.md) 

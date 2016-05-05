@@ -86,4 +86,4 @@ If you are having trouble with a function or package, 9 times out of 10, your pr
 
 ## Proceed to the Next or Previous lesson
 **Next Lesson:** [04 Data Structures & Data Frames](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/04-data-structures-dataframes.md) 
-**Previous Lesson** [02 Best Practices](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/02-project-intro.md)
+**Previous Lesson** [02 Best Practices](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/02-best-practices.md)
