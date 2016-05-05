@@ -3,11 +3,8 @@
 
 > ## Learning Objectives 
 > - To be aware of the different types of data
-> - To begin exploring the data.frame
-> - To understand how dataframes are related to vectors, factors and lists
-> - To be able to ask questions from R about the type, class, and structure of an object
-> - To learn how to manipulate a data.frame in memory
-> - To understand best practices of exploring and understanding a data.frame 
+> - To begin exploring data frames
+> - To be able to ask questions from R about the type and structure of an object
 
 ## Gapminder Data
 A data frame is a table, or two-dimensional structure, in which each column contains measurements on one variable, and each row contains one case. 

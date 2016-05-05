@@ -3,6 +3,7 @@
 
 > ## Learning Objectives 
 >
+> * To be able to base R to plot data
 > * To be able to use ggplot2 to generate publication quality graphics
 > * To understand the basics of the grammar of graphics:
 >   - The aesthetics layer

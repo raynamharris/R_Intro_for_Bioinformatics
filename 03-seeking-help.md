@@ -1,11 +1,11 @@
 03: Seeking Help
 =============
 
-## Learning Objectives 
-
-* To be able read R help files for functions and special operators.
-* To be able to use CRAN task views to identify packages to solve a problem.
-* To be able to seek help from your peers
+> ## Learning Objectives 
+> 
+> * To be able read R help files for functions and special operators.
+> * To be able to use CRAN task views to identify packages to solve a problem.
+> * To be able to seek help from your peers
 
 
 ## Help Pages
