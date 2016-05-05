@@ -22,19 +22,12 @@ Learning objectives:
 
 1.  [Introduction to R and RStudio](01-rstudio-intro.md)
 2.  [Best Practices](02-best-practices.md)
-3.  [Seeking help](03-seeking-help.html)
-4.  [Data structures](04-data-structures-part1.html)
-5.  [Data frames and reading in data](05-data-structures-part2.html)
-6.  [Subsetting data](06-data-subsetting.html)
-7.  [Creating functions](07-functions.html)
-8.  [Creating publication quality graphics](08-plot-ggplot2.html)
-9.  [Vectorisation](09-vectorisation.html)
-10. [Control flow](10-control-flow.html)
-11. [Writing data](11-writing-data.html)
-12. [Split-apply-combine](12-plyr.html)
-13. [Dataframe manipulation with dplyr](13-dplyr.html)
-14. [Dataframe manipulation with tidyr](14-tidyr.html)
-15. [Wrapping up](15-wrap-up.html)
+3.  [Seeking help](03-seeking-help.md)
+4.  [Data structures and Data Frames](04-data-structures-dataframes.md)
+5.	[Plotting](05-plotting.md)
+6.	[Subsetting](06-subsetting.md)
+7.	[dplyr](07dplyr.md)
+8.	[DESeq2](06-DESeq1.md)
 
 
 
