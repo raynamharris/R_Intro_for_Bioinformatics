@@ -37,4 +37,8 @@ Click "Download zip file.
 Save it to your desktop
 
 
+## Resources
 
+* Check out [Google's R Style Guide](https://google.github.io/styleguide/Rguide.xml) for best practices in writing R code.
+* Check out [The Hitchhiker's Guide to the Hadleyverse](http://adolfoalvarez.cl/the-hitchhikers-guide-to-the-hadleyverse/) for a comprehensive listing of all the packages Hadley Wickham, Chief Scientist at RStudio) has contributed to.
+* Check out these beautiful [RStudio Cheatsheets](https://www.rstudio.com/resources/cheatsheets/) for examples of how to use a variety of RStudio packages.
