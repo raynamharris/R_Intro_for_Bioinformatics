@@ -339,5 +339,5 @@ network). R and RStudio have functionality for managing packages:
 
 
 ## Proceed to the Next or Previous lesson
-**Next Lesson:** [02 Best Practices](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/02-best-practices.md)  
+**Next Lesson:** [02 Best Practices](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/lessons/02-best-practices.md)  
 **Previous Lesson** [README.md](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/README.md)

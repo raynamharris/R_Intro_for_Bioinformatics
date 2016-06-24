@@ -20,14 +20,14 @@ Learning objectives:
 
 ## Overview
 
-1.  [Introduction to R and RStudio](01-rstudio-intro.md)
-2.  [Best Practices](02-best-practices.md)
-3.  [Seeking help](03-seeking-help.md)
-4.  [Data structures and Data Frames](04-data-structures-dataframes.md)
-5.	[Plotting](05-plotting.md)
-6.	[Subsetting](06-subsetting.md)
-7.	[dplyr](07dplyr.md)
-8.	[DESeq2](06-DESeq1.R)
+1.  [Introduction to R and RStudio](lessons/01-rstudio-intro.md)
+2.  [Best Practices](lessons/02-best-practices.md)
+3.  [Seeking help](lessons/03-seeking-help.md)
+4.  [Data structures and Data Frames](lessons/04-data-structures-dataframes.md)
+5.	[Plotting](lessons/05-plotting.md)
+6.	[Subsetting](lessons/06-subsetting.md)
+7.	[dplyr](lessons/07dplyr.md)
+8.	[DESeq2](lessons/06-DESeq1.R)
 
 
 ## Download the data and a script for today.

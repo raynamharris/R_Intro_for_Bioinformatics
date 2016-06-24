@@ -134,5 +134,5 @@ tail(gapminder)			# prints the last 6 lines
 ~~~
 
 ## Proceed to the Next or Previous lesson
-**Next Lesson:** [05 Plotting with plot and ggplot2](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/05-plotting.md) 
-**Previous Lesson** [03 Seeking Help](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/03-seeking-help.md)  
+**Next Lesson:** [05 Plotting with plot and ggplot2](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/lessons/05-plotting.md) 
+**Previous Lesson** [03 Seeking Help](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/lessons/03-seeking-help.md)  

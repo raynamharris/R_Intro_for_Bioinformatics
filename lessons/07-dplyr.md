@@ -242,5 +242,5 @@ Of the three airports, which had the the longest distances traveled on average?
 
 
 ## Proceed to the Next or Previous lesson
-**Next Lesson:** [08 DESeq2](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/08-DESeq2.R)
-*Previous Lesson** [06 Subsetting](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/06-subsetting.md) 
+**Next Lesson:** [08 DESeq2](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/lessons/08-DESeq2.R)
+*Previous Lesson** [06 Subsetting](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/lessons/06-subsetting.md) 

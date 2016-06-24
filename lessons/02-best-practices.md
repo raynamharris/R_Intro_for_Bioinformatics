@@ -28,5 +28,5 @@ You can set up your project to integrate with git, putting it under version cont
 Your can interact with Git and GitHub via RStudio or the shell, but how to do this is beyond the scope of this course.
 
 ## Proceed to the Next or Previous lesson
-**Next Lesson:** [03 Seeking Help](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/03-seeking-help.md)  
-**Previous Lesson** [01 R Studio Intro](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/01-rstudio-intro.md)
+**Next Lesson:** [03 Seeking Help](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/lessons/03-seeking-help.md)  
+**Previous Lesson** [01 R Studio Intro](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/lessons/01-rstudio-intro.md)

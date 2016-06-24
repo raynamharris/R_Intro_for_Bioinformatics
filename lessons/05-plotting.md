@@ -233,5 +233,5 @@ This is just a taste of what you can do with `ggplot2`. RStudio provides a reall
 
 
 ## Proceed to the Next or Previous lesson
-**Next Lesson:** [06 Subsetting](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/06-subsetting.md)
-*Previous Lesson** [04 Data Structures & Data Frames](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/04-data-structures-dataframes.md) 
+**Next Lesson:** [06 Subsetting](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/lessons/06-subsetting.md)
+*Previous Lesson** [04 Data Structures & Data Frames](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/lessons/04-data-structures-dataframes.md) 

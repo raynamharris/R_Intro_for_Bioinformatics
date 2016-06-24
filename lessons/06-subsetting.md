@@ -96,5 +96,5 @@ Returns the first three rows and all column.
 If that syntax doesn't not work well with your brain, have no fear. Hadley Wickham has come to your rescue!
 
 ## Proceed to the Next or Previous lesson
-**Next Lesson:** [07 dplyr](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/07-dplyr.md) 
-**Previous Lesson** [05 Plotting with plot and ggplot2](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/05-plotting.md) 
+**Next Lesson:** [07 dplyr](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/lessons/07-dplyr.md) 
+**Previous Lesson** [05 Plotting with plot and ggplot2](https://github.com/raynamharris/R_Intro_for_Bioinformatics/blob/master/lessons/05-plotting.md) 
