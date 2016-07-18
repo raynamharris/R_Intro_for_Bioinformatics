@@ -213,7 +213,7 @@ gapminder %>%
         	sd_pop=sd(pop))  %>%        
 	ggplot(aes(x = year, y = mean_pop, color=continent)) +
   			geom_line()   
-
+~~~
 
 >## Challenge: Flights
 >
