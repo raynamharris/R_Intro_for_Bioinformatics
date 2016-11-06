@@ -27,7 +27,7 @@ Learning objectives:
 5.	[Plotting](lessons/05-plotting.md)
 6.	[Subsetting](lessons/06-subsetting.md)
 7.	[dplyr](lessons/07dplyr.md)
-8.	[DESeq2](lessons/06-DESeq1.R)
+8.	[DESeq2](lessons/08-DESeq2.R)
 
 
 ## Download the data and a script for today.
