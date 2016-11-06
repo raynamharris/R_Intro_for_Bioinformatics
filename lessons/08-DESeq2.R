@@ -1,5 +1,3 @@
-setwd("~/Desktop/Rcourse-DESeq2/bin")
-
 ### Install package from Bioconducter
 source("https://bioconductor.org/biocLite.R") ## try http:// if https:// URLs are not supported
 biocLite("DESeq2")
@@ -22,28 +20,12 @@ colData <- pData(pasillaGenes)[,c("condition","type")]
 head(countData)
 head(colData)
 
-### loading your own personal data
-mycountData <- read.csv("../data/pasillaGenes.csv", sep=",", header=TRUE)
-mycolData <- read.csv("..data/pasillaSamples.csv", sep=",", header=TRUE)
-head(mycountData) ### notice, we need to make col 1 the row names
-head(mycolData) ### notice, we need to make col 1 the row names
-
-### these oneliners will make column 1 the rowname then remove column 1
-mycountData <- data.frame(row.names=mycountData[,1], mycountData[,-1])
-mycolData <- data.frame(row.names=mycolData[,1], mycolData[,-1])
-head(mycountData) 
-head(mycolData) 
-
-
-
 ### Step 1: construct a DESeqDataSet
 
 dds <- DESeqDataSetFromMatrix(countData = countData,
                               colData = colData,
                               design = ~ condition)
 dds
-
-
 
 
 ### If you have additional feature data, 
