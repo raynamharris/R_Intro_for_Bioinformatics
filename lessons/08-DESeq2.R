@@ -8,17 +8,22 @@ library("DESeq2")
 ### Step 2: dds <- DESeq(dds)
 ### Step 3: res <- results(dds, contrast=c("condition","trt","con"))
 
+## Loading the data
+## Used to be ablt to do this from a library call "pasilla" but there is a bug
 
-### The Data Set
-library("pasilla")
-library("Biobase")
 
-### loading data that is part of the pasilla package
-data("pasillaGenes")
-countData <- counts(pasillaGenes) 
-colData <- pData(pasillaGenes)[,c("condition","type")]
-head(countData)
-head(colData)
+### loading your own personal data
+setwd("~/Desktop/R_Intro_for_Bioinformatics/data")
+countData <- read.csv("pasillaGenes.csv", sep=",", header=TRUE)
+colData <- read.csv("pasillaSamples.csv", sep=",", header=TRUE)
+head(countData) ### notice, we need to make col 1 the row names
+head(colData) ### notice, we need to make col 1 the row names
+
+### these oneliners will make column 1 the rowname then remove column 1
+countData <- data.frame(row.names=countData[,1], countData[,-1])
+colData <- data.frame(row.names=colData[,1], colData[,-1])
+head(countData) 
+head(colData) 
 
 ### Step 1: construct a DESeqDataSet
 
@@ -27,11 +32,6 @@ dds <- DESeqDataSetFromMatrix(countData = countData,
                               design = ~ condition)
 dds
 
-
-### If you have additional feature data, 
-### it can be added to the DESeqDataSet 
-featureData <- data.frame(gene=rownames(pasillaGenes))
-(mcols(dds) <- DataFrame(mcols(dds), featureData))
 
 ### 1.3.5 Pre-filtering
 ### While it is not necessary to pre-filter low count genes, 
