@@ -32,9 +32,7 @@ Learning objectives:
 
 ## Download the data and a script for today.
 
-Visit: https://github.com/raynamharris/FilesForRCourse
-Click "Download zip file.
-Save it to your desktop
+Click the green "Clone or Download" button. We will discuss in the class the difference between clone and download. Once we decide what's appropriate, save it to your desktop.
 
 
 ## Resources
