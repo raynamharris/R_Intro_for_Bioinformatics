@@ -8,6 +8,8 @@ library("DESeq2")
 ### Step 2: dds <- DESeq(dds)
 ### Step 3: res <- results(dds, contrast=c("condition","trt","con"))
 
+## link to tutorial here: https://bioc.ism.ac.jp/packages/2.14/bioc/vignettes/DESeq2/inst/doc/beginner.pdf
+
 ## Loading the data
 ## Used to be ablt to do this from a library call "pasilla" but there is a bug
 
