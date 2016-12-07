@@ -32,6 +32,13 @@ dds <- DESeqDataSetFromMatrix(countData = countData,
                               design = ~ condition)
 dds
 
+##### Did you get an error message?
+
+## If you read something like  "Error in library("pheatmap") : there is no package called ‘pheatmap’" # then something  is a miss
+## Either ask for help intreprting the error message or go back to the top and attempt to reinstall and load pheatmap.
+## No error message? Proceed ahead. 
+
+Is there something I should download before running this tutorial?
 
 ### 1.3.5 Pre-filtering
 ### While it is not necessary to pre-filter low count genes, 
